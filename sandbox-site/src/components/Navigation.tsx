@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-import '../App.scss';
+import './Navigation.scss'
 
 function Navigation () {
     return (
         <div className="navigation">
-            <button>SSBU Bracket</button>
+            <a href="/"><button>Home</button></a>
+            <a href="/bracket"><button>SSBU Bracket</button></a>
             <button>SSBU Rankings</button>
             <button>SSBU History</button>
         </div>

@@ -1,69 +1,16 @@
-$decorative-text: 'Press Start 2P';
-$standard-text: 'Lato';
+@import './Variables';
 
 body {
-    background-color: #4b4a46;
-    color: white;
+    background-color: $dark-background-color;
+    color: $light-text-color;
     margin: 0;
     font-family: $standard-text, sans-serif;
 }
 
-
 .App {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
-    
-    .navigation {
-        margin-bottom: 2rem;
-        button {
-            text-decoration: none;
-            border-color: white;
-            margin: 1rem;
-            padding: 1rem;
-            background-color: transparent;
-            color: white;
-            font-family: $decorative-text;
-        }
-    }
-    
-    .homepage {
-        padding: 2rem;
-        font-family: $decorative-text;
-        text-align: center;
-        margin-bottom: 2rem;
-        .title {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-        }
-        .subtitle {
-            font-size: 2rem;
-            
-        }
-        img {
-            height: 20px;
-            margin-right: 5px;
-        }
-    }
-
-    .footer {
-        font-family: $decorative-text;
-        text-align: center;
-        line-height: 24px;
-        vertical-align: middle;
-
-        a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 1rem;
-            img {
-                margin-right: 12px;
-                height: 24px;
-                width: 24px;
-            }
-        }
-    }
 }

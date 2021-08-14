@@ -1,0 +1,20 @@
+@import '../Variables';
+
+.homepage {
+    padding: 2rem;
+    font-family: $decorative-text;
+    text-align: center;
+    margin-bottom: 2rem;
+    .title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    .subtitle {
+        font-size: 2rem;
+        
+    }
+    img {
+        height: 20px;
+        margin-right: 5px;
+    }
+}

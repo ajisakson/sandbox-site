@@ -1,0 +1,20 @@
+@import '../Variables';
+
+.footer {
+    font-family: $decorative-text;
+    text-align: center;
+    line-height: 24px;
+    vertical-align: middle;
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        margin-bottom: 1rem;
+        img {
+            margin-right: 12px;
+            height: 24px;
+            width: 24px;
+        }
+    }
+}

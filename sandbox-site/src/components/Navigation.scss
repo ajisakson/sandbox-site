@@ -1,0 +1,14 @@
+@import '../Variables';
+
+.navigation {
+    margin-bottom: 2rem;
+    button {
+        text-decoration: none;
+        border-color: white;
+        margin: 1rem;
+        padding: 1rem;
+        background-color: transparent;
+        color: white;
+        font-family: $decorative-text;
+    }
+}
