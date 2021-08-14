@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import './App.scss';
+import Home from './routes/Home';
+import Footer from './components/Footer';
+import Navigation from './components/Navigation';
 
 function App() {
 
     return (
         <div className="App">
-            <div className="navigation">
-                <button>SSBU Bracket</button>
-                <button>SSBU Rankings</button>
-                <button>SSBU History</button>
-            </div>
-            <div className="homepage">
-                <div className="title">byssen<img src="./pokeball.png" />dev</div>
-                <div className="subtitle">sandbox and sideproject<br />home for austin isakson</div>
-            </div>
-            <div className="footer">
-                <a href="https://www.github.com/ajisakson"><img src="./github.png" />github</a>
-                <a href="https://www.twitter.com/austinisakson"><img src="./twitter.png" />twitter</a>
-            </div>
+            <Navigation />
+            <Router>
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                </Switch>
+            </Router>
+            <Footer />
         </div >
     );
 }
