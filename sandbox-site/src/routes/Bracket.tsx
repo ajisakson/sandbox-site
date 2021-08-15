@@ -30,8 +30,10 @@ export class Bracket extends React.Component<BracketProps>{ // eslint-disable-li
                     return (
                     <div key={index} className="bracket_node">
                         <div className="title">{node.roundName}</div>
-                        <div className="node_seed">{node.left ? `Winner of ${node.left}` : ''}</div>
-                        <div className="node_seed">{node.right ? `Winner of ${node.right}` : ''}</div>
+                        <input />
+                        <div className="node_seed">{node.left ? `Winner of ${node.left}` : ' '}</div>
+                        <input />
+                        <div className="node_seed">{node.right ? `Winner of ${node.right}` : ' '}</div>
                     </div>);
                 })}
             </div>

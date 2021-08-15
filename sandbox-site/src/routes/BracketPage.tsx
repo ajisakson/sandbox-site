@@ -26,7 +26,7 @@ export class BracketPage extends React.Component<BracketPageProps, BracketState>
     public render(): JSX.Element {
         return (
             <div className="bracket_page">
-                <div className="title">single elim bracket generator</div>
+                <div className="page_title">single elim bracket generator</div>
                 <NumericInput
                     min={2}
                     max={26}

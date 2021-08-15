@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    .title {
+    .page_title {
         display: block;
         margin-bottom: 2rem;
         font-family: $decorative-text;
@@ -17,14 +17,89 @@
     }
     .bracket {
         margin-top: 2rem;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        .title {
-            font-family: $decorative-text;
-        }
+        display: grid;
+        grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+        align-items: center;
+        column-gap: 30px;
         .bracket_node {
+            display: flex;
             padding: 20px;
+            flex-direction: column;
+            width: 300px;
+            &:nth-child(1){
+                grid-row: span 8;
+                grid-column: 8;
+            }
+            &:nth-child(2){
+                grid-row: 1 / span 4;
+                grid-column: 7;
+            }
+            &:nth-child(3){
+                grid-row: 5 /span 4;
+                grid-column: 7;
+            }
+            &:nth-child(4){
+                grid-row: 1 / span 2;
+                grid-column: 6;
+            }
+            &:nth-child(5){
+                grid-row: 3 / span 2;
+                grid-column: 6;
+            }
+            &:nth-child(6){
+                grid-row: 5 / span 2;
+                grid-column: 6;
+            }
+            &:nth-child(7){
+                grid-row: 7 / span 2;
+                grid-column: 6;
+            }
+            &:nth-child(8){
+                grid-row: 1 / span 1;
+                grid-column: 5;
+            }
+            &:nth-child(9){
+                grid-row: 2 / span 1;
+                grid-column: 5;
+            }
+            &:nth-child(10){
+                grid-row: 3 / span 1;
+                grid-column: 5;
+            }
+            &:nth-child(11){
+                grid-row: 4 / span 1;
+                grid-column: 5;
+            }
+            &:nth-child(12){
+                grid-row: 5 / span 1;
+                grid-column: 5;
+            }
+            &:nth-child(13){
+                grid-row: 6 / span 1;
+                grid-column: 5;
+            }
+            &:nth-child(14){
+                grid-row: 7 / span 1;
+                grid-column: 5;
+            }
+            &:nth-child(15){
+                grid-row: 8 / span 1;
+                grid-column: 5;
+            }
+            .title {
+                font-family: $decorative-text;
+            }
+            input {
+                margin-top: 2rem;
+            }
+            &:nth-child(1){
+                color: hotpink;
+            }
+            .node_seed {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+                min-height: 28px;
+            }
         }
     }
 }
