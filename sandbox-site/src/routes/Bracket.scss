@@ -16,16 +16,18 @@
         }
     }
     .bracket {
-        margin-top: 2rem;
+        margin: 2rem;
         display: grid;
         grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
         align-items: center;
         column-gap: 30px;
+        row-gap: 30px;
         .bracket_node {
             display: flex;
             padding: 20px;
             flex-direction: column;
             width: 300px;
+            background-color: black;
             &:nth-child(1){
                 grid-row: span 8;
                 grid-column: 8;
@@ -93,7 +95,7 @@
                 margin-top: 2rem;
             }
             &:nth-child(1){
-                color: hotpink;
+                color: red;
             }
             .node_seed {
                 font-size: 1rem;
