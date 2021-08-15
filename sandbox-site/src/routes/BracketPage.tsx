@@ -1,28 +1,45 @@
+import { prependOnceListener } from "process";
 import React, { useState } from "react";
 import NumericInput from "react-numeric-input";
 import Bracket from "./Bracket";
 
 import "./Bracket.scss";
 
-function BracketPage() {
+interface BracketState {
+    entries: number
+}
+
+interface BracketPageProps {
+    entries: number
+}
+
+
+export class BracketPage extends React.Component<BracketPageProps, BracketState> {
     // eslint-disable-line no-unused-vars
-    const [entriesInput, updateEntries] = useState(2);
-    const [showBracket, renderBracket] = useState(false);
-    return (
-        <div className="bracket">
-            <div className="title">single elim bracket generator</div>
-            <NumericInput
-                min={2}
-                max={26}
-                value={entriesInput}
-                onChange={() => updateEntries(entriesInput)}
-            />
-            <button onClick={() => renderBracket(true)} className="bracket">
-                generate!!!
-            </button>
-            {showBracket && <Bracket entries={entriesInput} />}
-        </div>
-    );
+
+    // const [showBracket, updateBracket] = useState(false);
+    constructor(props: BracketPageProps) {
+        super(props)
+        this.state = {entries: 4}
+    }
+
+    public render(): JSX.Element {
+        return (
+            <div className="bracket_page">
+                <div className="title">single elim bracket generator</div>
+                <NumericInput
+                    min={2}
+                    max={26}
+                    value={this.state.entries}
+                    onChange={value => (value != null ? this.setState({entries: value}) : this.setState({entries: 0}))}
+                />
+                <button onClick={()=>console.log(this.state.entries)} className="generate_button">
+                    generate!!!
+                </button>
+                <Bracket entries={this.state.entries} />
+            </div>
+        );
+    }
 }
 
 export default BracketPage; // eslint-disable-line no-unused-vars

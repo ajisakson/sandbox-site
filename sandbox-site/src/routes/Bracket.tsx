@@ -22,14 +22,16 @@ type BracketProps = {
     entries: number
 }
 
-function Bracket({entries}: BracketProps) { // eslint-disable-line no-unused-vars
-    return (
-        <div className="bracket">
-            {bracketBuild(entries).map(function (node, index) {
-                return (<div key={index}>{node.roundName}</div>);
-            })}
-        </div>
-    );
+export class Bracket extends React.Component<BracketProps>{ // eslint-disable-line no-unused-vars
+    public render(): JSX.Element {
+        return (
+            <div className="bracket">
+                {bracketBuild(this.props.entries).map(function (node, index) {
+                    return (<div key={index}>{node.roundName}</div>);
+                })}
+            </div>
+        );
+    }
 }
 
 export default Bracket; // eslint-disable-line no-unused-vars
@@ -78,3 +80,4 @@ const bracketBuild = (entries: number) => {
 
     return nodesArray;
 };
+
