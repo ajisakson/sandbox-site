@@ -27,7 +27,12 @@ export class Bracket extends React.Component<BracketProps>{ // eslint-disable-li
         return (
             <div className="bracket">
                 {bracketBuild(this.props.entries).map(function (node, index) {
-                    return (<div key={index}>{node.roundName}</div>);
+                    return (
+                    <div key={index} className="bracket_node">
+                        <div className="title">{node.roundName}</div>
+                        <div className="node_seed">{node.left ? `Winner of ${node.left}` : ''}</div>
+                        <div className="node_seed">{node.right ? `Winner of ${node.right}` : ''}</div>
+                    </div>);
                 })}
             </div>
         );
@@ -65,16 +70,16 @@ const bracketBuild = (entries: number) => {
         "Z",
     ];
     let nodesArray = [];
-    let nodesNeeded = entries;
+    let nodesNeeded = entries - 1;
     let nodesCreated = 0;
     while (nodesCreated < nodesNeeded) {
         nodesCreated++;
         let node = new BracketNode();
         node.roundName = alphabet[nodesCreated - 1];
         node.left =
-            nodesNeeded > nodesCreated * 2 ? alphabet[nodesCreated * 2 - 1] : null;
+            nodesNeeded > nodesCreated * 2 - 1 ? alphabet[nodesCreated * 2 - 1] : null;
         node.right =
-            nodesNeeded > nodesCreated * 2 + 1 ? alphabet[nodesCreated * 2] : null;
+            nodesNeeded > nodesCreated * 2 ? alphabet[nodesCreated * 2] : null;
         nodesArray.push(node);
     }
 

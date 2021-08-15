@@ -1,13 +1,30 @@
 @import '../Variables';
 
 .bracket_page {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     .title {
-        
+        display: block;
+        margin-bottom: 2rem;
+        font-family: $decorative-text;
     }
-    .generate_button {
-
+    .react-numeric-input {
+        input {
+            width: 60px;
+        }
     }
     .bracket {
-        
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        .title {
+            font-family: $decorative-text;
+        }
+        .bracket_node {
+            padding: 20px;
+        }
     }
 }

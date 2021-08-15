@@ -33,9 +33,6 @@ export class BracketPage extends React.Component<BracketPageProps, BracketState>
                     value={this.state.entries}
                     onChange={value => (value != null ? this.setState({entries: value}) : this.setState({entries: 0}))}
                 />
-                <button onClick={()=>console.log(this.state.entries)} className="generate_button">
-                    generate!!!
-                </button>
                 <Bracket entries={this.state.entries} />
             </div>
         );
