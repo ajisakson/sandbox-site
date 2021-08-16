@@ -6,9 +6,11 @@ type BracketProps = {
     id: number,
     left: number,
     right: number,
+    parent: number,
     roundName: string,
     leftEntrant: string,
     rightEntrant: string
+    win: (parentId: number, nodeId: number, winner: string)=> void
 }
 
 type BracketState = {
@@ -88,7 +90,7 @@ export class BracketNode extends React.Component<BracketProps>{ // eslint-disabl
     leftWin = (node: BracketProps) => {
         this.setState({winner: node.leftEntrant});
         // node.parent
-        
+        this.props.win(this.props.parent, this.props.id, node.leftEntrant);
         // if node where parent id == node.parent 
         // if this.node.id == parentNode.left { update node.leftEntrant to this.node.leftEntrant }
         // else if this.node.id == parentNode.right { update node.leftEntrant to this.node.rightEntrant }
@@ -97,7 +99,7 @@ export class BracketNode extends React.Component<BracketProps>{ // eslint-disabl
     rightWin = (node: BracketProps) => {
         this.setState({winner: node.rightEntrant});
         // node.parent
-    
+        this.props.win(this.props.parent, this.props.id, node.rightEntrant);
         // if node where parent id == node.parent 
         // if this.node.id == parentNode.right { update node.rightEntrant to this.node.rightEntrant }
         // else if this.node.id == parentNode.left { update node.leftEntrant to this.node.rightEntrant }

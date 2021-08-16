@@ -21,10 +21,14 @@ class BracketNodeConstructor {
         this.leftEntrant = "";
         this.rightEntrant = "";
     }
+
 }
 
 type BracketProps = {
     entries: number
+}
+type BracketState = {
+    brackets: ReturnType<typeof bracketBuild>
 }
 
 const alphabet = [
@@ -55,12 +59,29 @@ const alphabet = [
     "Z",
 ];
 
-export class Bracket extends React.Component<BracketProps>{ // eslint-disable-line no-unused-vars
+export class Bracket extends React.Component<BracketProps, BracketState>{ // eslint-disable-line no-unused-vars
+
+    constructor(props: BracketProps){
+        super(props);
+        this.state = {
+            // array of nodes here
+            brackets: bracketBuild(this.props.entries)
+        }
+    }
+
+    win = (parentId: number, nodeId: number, winner: string) => {
+        // get string of winner, parent id of node, location of parent node leaf
+        // bracketnode calls this
+        //
+    }
+
     public render(): JSX.Element {
+        
         return (
             <div className="bracket">
-                {bracketBuild(this.props.entries).map(function (node, index) {
-                    return <BracketNode key={node.id} id={node.id} left={node.left} right={node.right} roundName={node.roundName} leftEntrant={node.leftEntrant} rightEntrant={node.rightEntrant} />
+                {this.state.brackets.map( (node: BracketNodeConstructor, index: number) => {
+                    // return <BracketNode key={node.id} id={node.id} parent={node.parent} left={node.left} right={node.right} roundName={node.roundName} leftEntrant={node.leftEntrant} rightEntrant={node.rightEntrant}/>
+                    return <BracketNode key={node.id} {...node} win={this.win}/> //
                 })}
             </div>
         );
