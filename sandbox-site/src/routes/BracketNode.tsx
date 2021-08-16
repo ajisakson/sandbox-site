@@ -60,13 +60,16 @@ export class BracketNode extends React.Component<BracketProps>{ // eslint-disabl
         return (
             <div key={this.props.id} className="bracket_node">
                 <div className="title">{this.props.roundName}</div>
-
-                {this.props.leftEntrant === '' ? <input onChange={(e)=> this.handleInput("left", e) }/> : <div>{ this.props.leftEntrant }</div>}
-                <button className="entrant_win_button" onClick={ ()=> this.leftWin(this.props) }>Winner</button>
+                <div className="input_wrapper">
+                    {this.props.leftEntrant === '' ? <input onChange={(e)=> this.handleInput("left", e) }/> : <div>{ this.props.leftEntrant }</div>}
+                    <button className="entrant_win_button" onClick={ ()=> this.leftWin(this.props) }>Winner</button>
+                </div>
                 <div className="node_seed">{this.props.left ? `Winner of ${ alphabet[this.props.left] }` : ' '}</div>
 
-                {this.props.rightEntrant === '' ? <input onChange={(e)=> this.handleInput("right", e) }/> : <div>{ this.props.rightEntrant }</div>}
-                <button className="entrant_win_button" onClick= { ()=> this.rightWin(this.props) }>Winner</button>
+                <div className="input_wrapper">
+                    {this.props.rightEntrant === '' ? <input onChange={(e)=> this.handleInput("right", e) }/> : <div>{ this.props.rightEntrant }</div>}
+                    <button className="entrant_win_button" onClick= { ()=> this.rightWin(this.props) }>Winner</button>
+                </div>
                 <div className="node_seed">{this.props.right ? `Winner of ${ alphabet[this.props.right] }` : ' '}</div>
             </div>);
     }
@@ -85,7 +88,7 @@ export class BracketNode extends React.Component<BracketProps>{ // eslint-disabl
     leftWin = (node: BracketProps) => {
         this.setState({winner: node.leftEntrant});
         // node.parent
-
+        
         // if node where parent id == node.parent 
         // if this.node.id == parentNode.left { update node.leftEntrant to this.node.leftEntrant }
         // else if this.node.id == parentNode.right { update node.leftEntrant to this.node.rightEntrant }
